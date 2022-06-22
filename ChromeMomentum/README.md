@@ -10,4 +10,4 @@
 * forEach()
 
 ### Original Code from NomadCoders
-(https://nomadcoders.co/javascript-for-beginners/lobby)
+(https://github.com/nomadcoders/javascript-for-beginners)
