@@ -8,7 +8,7 @@
 * socketIO
 * Navigator.mediaDevices(미디어 장치 접근)
 * WebRTC(P2P 통신 연결) -> 중도포기.. 
-* CSS: <video>, addEventListener("input")
+* HTML: video, addEventListener("input")
 
 
 ### Original Code from NomadCoders
