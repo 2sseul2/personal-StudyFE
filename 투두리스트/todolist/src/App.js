@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 // 프로젝트 모든 곳에서, Todo 관련 context들을 사용할 수 있도록
-// TodoProvider로 감싸줌. 
+// TodoProvider로 감싸줌. !! 
 function App() {
   return(
     <TodoProvider>
