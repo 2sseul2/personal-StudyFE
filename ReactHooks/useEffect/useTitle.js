@@ -12,6 +12,7 @@ export const useTitle = (initialTitle) => {
   return setTitle;
 };
 
-// 실행
-// const titleUpdater = useTitle("Loading...");
-// setTimeout(() => titleUpdater("Home"), 5000); // 5초 후에 실행
+
+실행
+const titleUpdater = useTitle("Loading...");
+setTimeout(() => titleUpdater("Home"), 5000); // 5초 후에 실행

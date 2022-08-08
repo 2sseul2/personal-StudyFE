@@ -16,6 +16,6 @@ export const useBeforeLeave = (onBefore) => {
   }, []);
 };
 
-// 실행
-// const begForLife = () => console.log("please don't leave");
-// useBeforeLeave(begForLife);
+실행
+const begForLife = () => console.log("please don't leave");
+useBeforeLeave(begForLife);

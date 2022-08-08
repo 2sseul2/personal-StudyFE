@@ -14,13 +14,13 @@ export const useScroll = () => {
   return state;
 };
 
-// 실행
-// const { y } = useScroll();
-// return (
-//   // 스크롤 하기 위함: 1000vh
-//   <div style={{ height: "1000vh" }}>
-//     <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
-//       hello
-//     </h1>
-//   </div>
-// );
+실행
+const { y } = useScroll();
+return (
+  // 스크롤 하기 위함: 1000vh
+  <div style={{ height: "1000vh" }}>
+    <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
+      hello
+    </h1>
+  </div>
+);

@@ -9,6 +9,7 @@ export const useConfirm = (message = "", onConfirm, onCancel) => {
   }
   const confirmAction = () => {
     if (window.confirm(message)) {
+      onConfirm();
     } else {
       onCancel();
     }
@@ -16,12 +17,12 @@ export const useConfirm = (message = "", onConfirm, onCancel) => {
   return confirmAction;
 };
 
-//실행
-// const deleteWorld = () => console.log("Deleting the world...");
-// const abort = () => console.log("Aborted");
-// const confirmDelete = useConfirm("Aure you sure", deleteWorld, abort);
-// return (
-//   <div>
-//     <button onClick={confirmDelete}>Delete the world</button>
-//   </div>
-// );
+실행
+const deleteWorld = () => console.log("Deleting the world...");
+const abort = () => console.log("Aborted"); // abort: 중단하다
+const confirmDelete = useConfirm("Are you sure", deleteWorld, abort);
+return (
+  <div>
+    <button onClick={confirmDelete}>Delete the world</button>
+  </div>
+);
