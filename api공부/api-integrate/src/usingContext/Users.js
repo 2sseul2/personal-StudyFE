@@ -6,10 +6,7 @@ function Users() {
   const [userId, setUserId] = useState(null);
   const state = useUsersState();
   const dispatch = useUsersDispatch();
-  console.log("==Users==");
-  console.log("state: ", state);
-  console.log("dispatch: ", dispatch);
-  
+
   const { data: users, loading, error } = state.users;
   const fetchData = () => {
     getUsers(dispatch);
@@ -17,6 +14,7 @@ function Users() {
 
   if (loading) return <div>로딩중</div>;
   if (error) return <div>에러 발생</div>;
+  // 처음에는 fetchData를 호출하지 않았기 때문에 아래코드가 보임.
   if (!users) return <button onClick={fetchData}>불러오기</button>;
   return (
     <>

@@ -1,7 +1,7 @@
 // 다양한 컴포넌트에서 필요하게 될 특정 데이터를 위한 Context 사용
-
-import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
+import createAsyncDispatcher from "./createAsyncDispatcher";
+import * as api from "./api"; //getUsers, getUser
 
 // UsersContext에서 사용할 기본 상태
 const initialState = {
@@ -110,31 +110,15 @@ export function useUsersDispatch() {
   return dispatch;
 }
 
+//createAsyncDispatcher는 actionHandler를 반환하므로
+//getUsers는 actionHandler를 가지고 있다.
+//actionHandler는 dispatch, ...rest를 파라미터로 받으므로
+//Users에서 getUsers(dispatch)로 호출했다.
 
-//API 처리 함수: getUsers, getUser
-export async function getUsers(dispatch) {
-  dispatch({ type: "GET_USERS" });
-  try {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    dispatch({ type: "GET_USERS_SUCCESS", data: response.data });
-  } catch (e) {
-    dispatch({ type: "GET_USERS_ERROR", error: e });
-  }
-}
+// promiseFn과 type을 createAsyncDispatcher의 파라미터로 받은 상태였기에 알아서 저장하고 있다.
+export const getUsers = createAsyncDispatcher('GET_USERS', api.getUsers);
+export const getUser = createAsyncDispatcher('GET_USER', api.getUser);
 
-export async function getUser(dispatch, id) {
-  dispatch({ type: "GET_USER" });
-  try {
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/users/${id}`
-    );
-    dispatch({ type: "GET_USER_SUCCESS", data: response.data });
-  } catch (e) {
-    dispatch({ type: "GET_USER_ERROR", error: e });
-  }
-}
 function UsersContext() {
   return <div>UsersContext</div>;
 }
